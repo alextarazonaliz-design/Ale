@@ -1,0 +1,350 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Variables */
+:root {
+  --main-color: #4d423b;
+  --secondary-color: #f4efe1;
+  --text-color: #2e2e3a;
+  --light-gray: #f5f5f5;
+}
+
+/* Body */
+body {
+  font-family: 'Raleway', sans-serif;
+  color: var(--text-color);
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ========================= */
+/* HEADER + NAVIGATION CLEAN */
+/* ========================= */
+.header {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.logo {
+  font-family: "Lobster", cursive;
+  color: var(--main-color);
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+
+/* NAV LINKS - Desktop por defecto */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--main-color);
+}
+
+/* Botón hamburguesa */
+.hamburger {
+  display: none; /* oculto en escritorio */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--main-color);
+}
+
+/* ========================= */
+/* MOBILE STYLES */
+/* ========================= */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* visible en móviles */
+  }
+
+  .nav-links {
+    display: none;               /* oculto por defecto */
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .nav-links.active {
+    display: flex; /* visible cuando el JS añade .active */
+  }
+
+  .nav-links li {
+    margin-bottom: 1rem;
+  }
+
+  .nav-links li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  background-color: var(--secondary-color);
+  gap: 2rem;
+}
+
+.hero-text {
+  max-width: 600px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero p { font-size: 1.2rem; }
+
+.hero .flavor {
+  font-style: italic;
+  font-weight: 900;
+}
+
+/* Hero Image */
+.hero-image .circle {
+  width: 350px;
+  height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Hero Desktop */
+@media (min-width: 768px) {
+  .hero { flex-direction: row; text-align: left; }
+  .hero-text { text-align: left; }
+}
+
+/* ========================= */
+/* SECCIONES */
+/* ========================= */
+.section {
+  width: 100%;
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.section-title-planes {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.bg-secondary { background: var(--secondary-color); }
+
+/* ========================= */
+/* SOBRE MÍ */
+/* ========================= */
+.sobre-mi-container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.sobre-mi-text {
+  max-width: 600px;
+}
+
+.sobre-mi-text .nombre {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--main-color);
+  margin-bottom: 0.5rem;
+}
+
+.sobre-mi-text .titulo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+/* ========================= */
+/* SERVICIOS */
+/* ========================= */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.service-card .icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* ========================= */
+/* TESTIMONIOS / PLANES */
+/* ========================= */
+.testimonios-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+blockquote {
+  background: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  font-style: italic;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ========================= */
+/* CONTACTO */
+/* ========================= */
+.contacto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.contact-button img {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.contact-button.whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+
+.contact-button.whatsapp:hover {
+  background: #1ebe5c;
+}
+
+.contact-button.email {
+  background: var(--main-color);
+  color: #fff;
+}
+
+.contact-button.email:hover {
+  opacity: 0.9;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+.footer {
+  background: var(--text-color);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* ========================= */
+/* RESPONSIVE EXTRAS */
+/* ========================= */
+@media (max-width: 768px) {
+  .hero-text h2 { font-size: 2rem; }
+}
